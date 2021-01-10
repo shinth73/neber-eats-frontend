@@ -6,6 +6,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
+      // sans: ["ui-sans-serif", "system-ui"],
       sans: ["sans-serif", "Helvetica", "Arial"],
     },
     extend: {
