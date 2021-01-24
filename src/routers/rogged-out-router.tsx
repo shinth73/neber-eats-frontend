@@ -16,9 +16,6 @@ export const LoggedOutRouter = () => {
         <Route path="/" exact>
           <Login />
         </Route>
-        <Route>
-          <NotFound />
-        </Route>
       </Switch>
     </Router>
   );
