@@ -25,6 +25,7 @@ const SEARCH_RESTAURANT = gql`
 export const Search = () => {
   const location = useLocation();
   const history = useHistory();
+  // console.log(location);
   const [callQuery, { loading, data, called }] = useLazyQuery<
     searchRestaurant,
     searchRestaurantVariables
@@ -49,7 +50,8 @@ export const Search = () => {
       <Helmet>
         <title>Search | Nuber Eats</title>
       </Helmet>
-      <h1>Search page</h1>
+      {loading ? <h1>Searching</h1> : <h1>List</h1>}
+      {/* <h1>Searching</h1> */}
     </div>
   );
 };
