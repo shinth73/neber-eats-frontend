@@ -2,9 +2,8 @@
 
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { NotFound } from "../pages/404";
-import { CreateAccount } from "../pages/create-account";
-import { Login } from "../pages/login";
+import { CreateAccount } from "../components/create-account";
+import { Login } from "../components/login";
 
 export const LoggedOutRouter = () => {
   return (

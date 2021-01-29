@@ -14,7 +14,7 @@ import {
 } from "../__generated__/createAccountMutation";
 import { UserRole } from "../__generated__/globalTypes";
 
-const CREATE_ACCOUNT_MUTATION = gql`
+export const CREATE_ACCOUNT_MUTATION = gql`
   mutation createAccountMutation($createAccountInput: CreateAccountInput!) {
     createAccount(input: $createAccountInput) {
       ok
@@ -42,6 +42,7 @@ export const CreateAccount = () => {
       createAccount: { ok },
     } = data;
     if (ok) {
+      alert("Account Created! Log in now!");
       history.push("/");
     }
   };
@@ -64,7 +65,7 @@ export const CreateAccount = () => {
   return (
     <div className="h-screen flex items-center flex-col mt-10 lg:mt-28">
       <Helmet>
-        <title>Create Account | Nuber Eats</title>
+        <title>Create Account | Uber Eats</title>
       </Helmet>
       <div className="w-full max-w-screen-sm flex flex-col px-5 items-center">
         <img src={nuberLogo} alt=" nuberLogo" className="w-52 mb-10" />
@@ -81,8 +82,9 @@ export const CreateAccount = () => {
             placeholder="Email"
             className="input"
           />
+          {errors.email?.message && <FormError errorMessage={errors.email?.message} />}
           {errors.email?.type === "pattern" && (
-            <FormError errorMessage={"Please enter a valide email"} />
+            <FormError errorMessage={"Please enter a valid email"} />
           )}
           <input
             ref={register({ required: "Password is required" })}
@@ -93,9 +95,6 @@ export const CreateAccount = () => {
             className="input"
           />
           {errors.password?.message && <FormError errorMessage={errors.password?.message} />}
-          {errors.password?.type === "minLength" && (
-            <FormError errorMessage="Password must be more than 10 chars." />
-          )}
           <select name="role" ref={register({ required: true })} className="input">
             {Object.keys(UserRole).map((role, index) => (
               <option key={index}>{role}</option>
