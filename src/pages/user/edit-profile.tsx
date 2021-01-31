@@ -2,7 +2,7 @@
 
 import { gql, useApolloClient, useMutation } from "@apollo/client";
 import React from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Button } from "../../components/button";
 import { useMe } from "../../hooks/useMe";
